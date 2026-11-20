@@ -58,7 +58,19 @@ fun main() {
             }
 
 
-            3 -> println("Mark Task as Completed selected")
+            3 -> {
+
+                try{
+
+                println("========== COMPLETE  TASK ==========")
+                println("Enter the ID:")
+                val id = readln().trim().toInt()
+                    taskManager.taskCompleted(id)
+                }catch(e:Exception){
+                    println("Please enter a valid ID!")
+                }
+
+            }
             4 -> println("Delete Task selected")
             5 -> println("Goodbye!")
             else -> println("Invalid input! Please enter a number between 1 and 5.")

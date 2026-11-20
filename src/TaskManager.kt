@@ -42,7 +42,25 @@ class TaskManager() {
             println("Task is already complete.")
             task.displayInfoTask()
         }
-
-
+    }
+    fun RemoveTask(id:Int,choice :Char){
+        if(listOfTasks.isEmpty()){
+            println("Task is empty No task available.")
+            println("Please ADD At least 1 Task")
+            return
+        }
+        val task = listOfTasks.find { it.getId() == id }
+        if(task == null){
+            println("Task not found.")
+            return
+        }
+     when(choice){
+         'y','Y'-> {
+             listOfTasks.remove(task)
+             println("Task deleted.")
+         }
+         'n','N' -> println("Task deletion cancelled.")
+         else -> println("Enter y or N")
+     }
     }
 }
