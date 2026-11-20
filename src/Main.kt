@@ -51,7 +51,13 @@ fun main() {
                 }while(Priorityinput<1 || Priorityinput> 3)
                 taskManager.addTask(input1, description,selectedPriority!!)
             }
-            2 -> println("View Tasks selected")
+            2 ->  {
+            println("========== View TASK ==========")
+
+                taskManager.ViewTask()
+            }
+
+
             3 -> println("Mark Task as Completed selected")
             4 -> println("Delete Task selected")
             5 -> println("Goodbye!")
