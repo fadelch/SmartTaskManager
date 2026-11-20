@@ -16,9 +16,33 @@ class TaskManager() {
         if(listOfTasks.isEmpty()){
             println("View task is empty No task available.")
             println("Please ADD At least 1 Task")
+            return
         }
         listOfTasks.forEach { task ->
             task.displayInfoTask()
         }
+    }
+    fun taskCompleted(id:Int){
+        if(listOfTasks.isEmpty()){
+            println(" task is empty No task available.")
+            println("Please ADD At least 1 Task")
+            return
+        }
+        val task = listOfTasks.find { it.getId() == id }
+        if(task == null){
+            println("Task not found.")
+            return
+        }
+        if(task.getStatus() == false){
+            task.setStatus(true)
+            println("Task is  completed.")
+            task.displayInfoTask()
+        }
+        else{
+            println("Task is already complete.")
+            task.displayInfoTask()
+        }
+
+
     }
 }
