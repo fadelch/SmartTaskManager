@@ -1,3 +1,5 @@
+import java.awt.Choice
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
@@ -71,7 +73,30 @@ fun main() {
                 }
 
             }
-            4 -> println("Delete Task selected")
+            4 -> {
+                println("========== Deleting  TASK ==========")
+                var Choice:Char = ' '
+                var Id = 0
+                try {
+                    println("Enter the Id:")
+                    Id = readln().trim().toInt()
+                    do {
+
+                        println("Are you sure you want to delete: ")
+                        Choice = readln()[0]
+                        if (Choice == 'y' || Choice == 'Y') {
+                            taskManager.RemoveTask(Id, Choice)
+                        }
+                        if(Choice == 'n' || Choice == 'N') {
+                            taskManager.RemoveTask(Id,Choice)
+                        }
+
+                    } while (Choice != 'y' && Choice != 'Y' && Choice != 'n' && Choice != 'N')
+                }
+                    catch(e:Exception){
+                        println("Please enter a valid Choice or Id!")
+                    }
+            }
             5 -> println("Goodbye!")
             else -> println("Invalid input! Please enter a number between 1 and 5.")
           }
