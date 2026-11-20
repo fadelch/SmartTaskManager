@@ -12,4 +12,13 @@ class TaskManager() {
         println("Task added successfully.")
         task.displayInfoTask()
     }
+    fun ViewTask(){
+        if(listOfTasks.isEmpty()){
+            println("View task is empty No task available.")
+            println("Please ADD At least 1 Task")
+        }
+        listOfTasks.forEach { task ->
+            task.displayInfoTask()
+        }
+    }
 }
